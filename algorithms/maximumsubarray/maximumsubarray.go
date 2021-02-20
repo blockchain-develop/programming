@@ -54,3 +54,22 @@ func MaximumSubarray_KadaneWithIndex(data []int) (int, int, int) {
 	}
 	return max_so_far, max_so_far_front, max_so_far_end
 }
+
+func MaximumSubarray_DP(data []int) int {
+	result := make([]int, len(data) + 1)
+	result[0] = 0
+	for i, _ := range data {
+		if result[i] + data[i] > data[i] {
+			result[i + 1] = result[i] + data[i]
+		} else {
+			result[i + 1] = data[i]
+		}
+	}
+	max := math.MinInt32
+	for i := 1;i < len(result);i ++ {
+		if result[i] > max {
+			max = result[i]
+		}
+	}
+	return max
+}
