@@ -1,7 +1,7 @@
 package mergesort
 
 import (
-	"github.com/gopro/memsort"
+	"github.com/programming/utils"
 	"github.com/stretchr/testify/assert"
 	"math/rand"
 	"testing"
@@ -10,28 +10,28 @@ import (
 func TestMergeSort1(t *testing.T) {
 	data := [...]int32{1, 2, 3, 4, 5}
 	MergeSort(data[:])
-	order := comsort.IsOrderly(data[:])
+	order := utils.IsOrderly(data[:])
 	assert.Equal(t, order, byte(1))
 }
 
 func TestMergeSort2(t *testing.T) {
 	data := [...]int32{5, 4, 3, 2, 1}
 	MergeSort(data[:])
-	order := comsort.IsOrderly(data[:])
+	order := utils.IsOrderly(data[:])
 	assert.Equal(t, order, byte(1))
 }
 
 func TestMergeSort3(t *testing.T) {
 	data := [...]int32{5, 1, 3, 4, 2}
 	MergeSort(data[:])
-	order := comsort.IsOrderly(data[:])
+	order := utils.IsOrderly(data[:])
 	assert.Equal(t, order, byte(1))
 }
 
 func TestMergeSort4(t *testing.T) {
 	data := [...]int32{5, 1, 3, 1, 2}
 	MergeSort(data[:])
-	order := comsort.IsOrderly(data[:])
+	order := utils.IsOrderly(data[:])
 	assert.Equal(t, order, byte(1))
 }
 
@@ -42,7 +42,7 @@ func TestMergeSort5(t *testing.T) {
 		data[i] = rand.Int31()
 	}
 	MergeSort(data[:])
-	order := comsort.IsOrderly(data[:])
+	order := utils.IsOrderly(data[:])
 	assert.Equal(t, order, byte(1))
 }
 

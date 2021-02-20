@@ -1,7 +1,7 @@
 package binarysearchtree
 
 import (
-	"github.com/gopro/memsort"
+	"github.com/programming/utils"
 	"github.com/stretchr/testify/assert"
 	"testing"
 )
@@ -37,7 +37,7 @@ func TestBinarySearchTree2(t *testing.T) {
 		tree.InSert(data[i])
 	}
 	sort_data := tree.Get()
-	order := comsort.IsOrderly(sort_data)
+	order := utils.IsOrderly(sort_data)
 	assert.Equal(t, order, byte(1))
 }
 
@@ -48,7 +48,7 @@ func TestBinarySearchTree3(t *testing.T) {
 		tree.InSert(data[i])
 	}
 	sort_data := tree.Get()
-	order := comsort.IsOrderly(sort_data)
+	order := utils.IsOrderly(sort_data)
 	assert.Equal(t, order, byte(1))
 }
 
@@ -59,6 +59,6 @@ func TestBinarySearchTree4(t *testing.T) {
 		tree.InSert(data[i])
 	}
 	sort_data := tree.Get()
-	order := comsort.IsOrderly(sort_data)
+	order := utils.IsOrderly(sort_data)
 	assert.Equal(t, order, byte(1))
 }
