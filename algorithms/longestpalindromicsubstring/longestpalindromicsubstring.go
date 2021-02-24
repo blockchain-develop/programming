@@ -91,3 +91,27 @@ func LongestPalindromicSubstring_DP(data []byte) int {
 	return resultLen
 }
 
+func LongestPalindromicSubstring_DP2(data []byte) int {
+	dataLen := len(data)
+	keep := make([][]int, dataLen + 1)
+	for i := 0;i < dataLen + 1;i ++ {
+		keep[i] = make([]int, dataLen + 1)
+	}
+	for i := dataLen - 1;i >= 0;i -- {
+		for j := i;j < dataLen;j ++ {
+			if data[i] == data[j] && keep[i + 1][j] == 0 {
+				keep[i][j + 1] = 0
+			} else {
+				keep[i][j + 1] = 1
+			}
+		}
+	}
+	for m := dataLen; m >= 0;m -- {
+		for i := 0;i < dataLen + 1 && i + m < dataLen + 1;i ++ {
+			if keep[i][i + m] == 0 {
+				return m
+			}
+		}
+	}
+	return 0
+}
